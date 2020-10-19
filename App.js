@@ -1,7 +1,16 @@
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import MealsScreen from './screens/Meals';
+import LoginScreen from './screens/Login';
+import RegisterScreen from './screens/Register';
 import Modal from './screens/Modal';
+
+const OnBoardingNavigator = createStackNavigator({
+  Login: LoginScreen,
+  Register: RegisterScreen
+}, {
+  initialRouteName: 'Login',
+})
 
 const AppNavigator = createStackNavigator({
   Meals:{
@@ -9,7 +18,7 @@ const AppNavigator = createStackNavigator({
   }
 },{
   initialRouteName: 'Meals',
-  headerLayoutPreset: 'center',
+  headerLayoutPreset: 'center', //Center text in navbar
 })
 
 const RootStack = createStackNavigator({
@@ -20,4 +29,12 @@ const RootStack = createStackNavigator({
   headerMode: 'none',
 })
 
-export default createAppContainer(RootStack)
+const BaseStack = createSwitchNavigator({
+  OnBoarding: OnBoardingNavigator,
+  Root: RootStack
+},{
+  initialRouteName: 'OnBoarding',
+  headerLayoutPreset: 'center', //Center text in navbar
+})
+
+export default createAppContainer(BaseStack)
