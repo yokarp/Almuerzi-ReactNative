@@ -32,7 +32,7 @@ export default ({ navigation }) => {
   }
 
   const onSubmit = (values) => {
-    fetch('https://serverless-dmjqkbw8z.vercel.app/api/auth/register', {
+    fetch('https://serverless.yokarp.vercel.app/api/auth/register', {
       method: 'POST',
       headers: {
         'Content-Type' : 'Application/json',
