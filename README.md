@@ -2,4 +2,4 @@
 
 Practice React Native
 
--Conect a versel
+-Conect a versel and redux
